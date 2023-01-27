@@ -31,6 +31,4 @@ class Theme {
   }
 }
 
-// const questions = Theme.getQandA(2);
-// console.log(questions);
 module.exports = Theme;

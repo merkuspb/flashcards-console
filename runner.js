@@ -18,5 +18,6 @@ for (let i = 0; i < questionAndAnsw[0].length; i += 1) {
   count += q1;
   console.log(`Ваш счёт: ${count}`);
 }
-
-console.clear();
+setTimeout(() => {
+  console.clear();
+}, 1500);
