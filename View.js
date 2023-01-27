@@ -16,7 +16,7 @@ class View {
     if (answer === questionVariant.answer) {
       console.log(`Ура!!!:+1:`);
     } else {
-      console.log("Как можно было это не знать...");
+      console.log('Как можно было это не знать...');
     }
   }
 }
