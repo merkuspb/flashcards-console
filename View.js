@@ -1,25 +1,30 @@
-/* eslint-disable no-console */
-/* eslint-disable linebreak-style */
-const readlineSync = require('readline-sync');
-const Theme = require('./Theme');
+
+const readlineSync = require(`readline-sync`);
+const { EOL } = require('os');
+
+const styleGreen = '\033[38;5;040m';
+const styleRed = '\033[38;5;160m';
 
 class View {
   static showTheme() {
-    let numberTheme = readlineSync.question(
-      'Выбор темы: (Выберите цифру)\n1. тема1\n2. тема2\n3. тема3\n'
+    const numberTheme = readlineSync.question(
+      'Выбор темы: (Выберите цифру)\n1. Насекомые\n2. Книга по цитате\n3. Матричная тема -РОН-\n'
     );
     return numberTheme;
   }
 
   static showQuestions(questionVariant) {
-    let answer = readlineSync.question(`${questionVariant.question}\n`);
+    const answer = readlineSync.question(`${questionVariant.question} ${EOL}`);
     if (answer === questionVariant.answer) {
-      console.log('Ура!!!:+1:');
+      console.log(styleGreen, 'Ура!!!');
+      console.log('🥳🥳🥳🥳🥳');
+      return 100;
     } else {
-      console.log('Как можно было это не знать...');
+      console.log(styleRed, 'Как можно было это не знать...');
+      console.log('💩💩💩💩💩');
+      return -100;
     }
   }
 }
-View.showQuestions(1);
 
 module.exports = View;
