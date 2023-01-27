@@ -1,14 +1,14 @@
-
 const readlineSync = require(`readline-sync`);
 const { EOL } = require('os');
 
 const styleGreen = '\033[38;5;040m';
 const styleRed = '\033[38;5;160m';
+const styleStop = '\033[0m';
 
 class View {
   static showTheme() {
     const numberTheme = readlineSync.question(
-      'Выбор темы: (Выберите цифру)\n1. Насекомые\n2. Книга по цитате\n3. Матричная тема -РОН-\n'
+      '❓❓❓❓❓❓❓❓❓❓❓❓❓❓❓\nВыбор темы: (Выберите цифру)\n1. Насекомые\n2. Книга по цитате\n3. Матричная тема -РОН-\n❓❓❓❓❓❓❓❓❓❓❓❓❓❓❓\n'
     );
     return numberTheme;
   }
@@ -17,11 +17,11 @@ class View {
     const answer = readlineSync.question(`${questionVariant.question} ${EOL}`);
     if (answer === questionVariant.answer) {
       console.log(styleGreen, 'Ура!!!');
-      console.log('🥳🥳🥳🥳🥳');
+      console.log(styleStop, '🥳🥳🥳🥳🥳');
       return 100;
     } else {
       console.log(styleRed, 'Как можно было это не знать...');
-      console.log('💩💩💩💩💩');
+      console.log(styleStop, '💩💩💩💩💩');
       return -100;
     }
   }
