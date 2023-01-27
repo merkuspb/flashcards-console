@@ -7,16 +7,15 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable class-methods-use-this */
 const fs = require('fs');
-
-const userNum = 2;
-const userNumToInd = userNum - 1;
+const { EOL } = require('os');
 
 class Theme {
-  static getQandA(userNumToInd) {
+  static getQandA(userNum) {
+    const userNumToInd = userNum - 1;
     const allThemes = fs.readdirSync('./topics');
     const pickedTheme = allThemes[userNumToInd];
     const questionStrings = fs.readFileSync(`./topics/${pickedTheme}`, 'utf-8');
-    const stringsToArr = questionStrings.split('\r\n');
+    const stringsToArr = questionStrings.split(`${EOL}`);
     const onlyQuestionsArr = [];
     const onlyAnswersArr = [];
     stringsToArr.map((str) => {
@@ -32,6 +31,6 @@ class Theme {
   }
 }
 
-const questions = Theme.getQandA(userNumToInd);
-console.log(questions);
+// const questions = Theme.getQandA(2);
+// console.log(questions);
 module.exports = Theme;
