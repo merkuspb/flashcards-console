@@ -1,3 +1,4 @@
+
 const readlineSync = require(`readline-sync`);
 const { EOL } = require('os');
 
@@ -25,4 +26,5 @@ class View {
     }
   }
 }
+
 module.exports = View;
